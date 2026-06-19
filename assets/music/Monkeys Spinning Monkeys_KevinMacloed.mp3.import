@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g3encapcruiq"
+path="res://.godot/imported/Monkeys Spinning Monkeys_KevinMacloed.mp3-5e892cee4e757673bb44ba0030d720a3.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Monkeys Spinning Monkeys_KevinMacloed.mp3"
+dest_files=["res://.godot/imported/Monkeys Spinning Monkeys_KevinMacloed.mp3-5e892cee4e757673bb44ba0030d720a3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

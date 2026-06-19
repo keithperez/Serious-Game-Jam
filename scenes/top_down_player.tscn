@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cgo8m22ca446c"]
+
+[ext_resource type="Script" uid="uid://ddex7guisnqsu" path="res://scripts/top_down_player.gd" id="1_2hsqi"]
+[ext_resource type="Texture2D" uid="uid://ch0smegq3bjm0" path="res://assets/placeholder/placeholder_character.png" id="2_vxkrt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijppq"]
+
+[node name="TopDownPlayer" type="CharacterBody2D" unique_id=191563013]
+script = ExtResource("1_2hsqi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1156094473]
+texture = ExtResource("2_vxkrt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1687018018]
+shape = SubResource("CircleShape2D_ijppq")

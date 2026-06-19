@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://mv8he03xc8lx"]
+
+[ext_resource type="Script" uid="uid://chn51hdskc7kp" path="res://scripts/level_scripts/debug_level.gd" id="1_7o5vt"]
+[ext_resource type="PackedScene" uid="uid://cgo8m22ca446c" path="res://scenes/top_down_player.tscn" id="1_hkwi7"]
+[ext_resource type="Texture2D" uid="uid://cfedggb40f7d1" path="res://assets/Wheel.png" id="2_r04o2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 252.3351
+
+[node name="debug_level" type="Node2D" unique_id=593167877]
+script = ExtResource("1_7o5vt")
+
+[node name="TopDownPlayer" parent="." unique_id=191563013 instance=ExtResource("1_hkwi7")]
+position = Vector2(248, 187)
+collision_layer = 2
+
+[node name="Thing" type="Area2D" parent="." unique_id=177321027]
+position = Vector2(575, 323)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Thing" unique_id=602573635]
+texture = ExtResource("2_r04o2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Thing" unique_id=802325514]
+shape = SubResource("CircleShape2D_g4v7s")

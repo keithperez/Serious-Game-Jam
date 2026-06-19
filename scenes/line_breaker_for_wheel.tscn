@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://djhtrwy13osdq"]
+
+[ext_resource type="Texture2D" uid="uid://dt0jgsq2xedde" path="res://assets/Line_of_Doom.png" id="1_j1w4m"]
+
+[node name="LineBreakerForWheel" type="Node2D" unique_id=1875389006]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=730789019]
+texture = ExtResource("1_j1w4m")
+offset = Vector2(125, 0)

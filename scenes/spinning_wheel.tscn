@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bsblnbh0epuk5"]
+
+[ext_resource type="Script" uid="uid://uyc613iavdlw" path="res://scripts/spinning_wheel.gd" id="1_7u85o"]
+[ext_resource type="PackedScene" uid="uid://djhtrwy13osdq" path="res://scenes/line_breaker_for_wheel.tscn" id="2_bqp8g"]
+[ext_resource type="Texture2D" uid="uid://cfedggb40f7d1" path="res://assets/Wheel.png" id="3_bqp8g"]
+[ext_resource type="Texture2D" uid="uid://cwnekcfv12k33" path="res://assets/wheel_flipper_thing.png" id="3_dpgcp"]
+
+[node name="SpinningWheel" type="Control" unique_id=7471569]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7u85o")
+options = Array[String](["DIE", "LIVE"])
+linebreaker = ExtResource("2_bqp8g")
+
+[node name="ActualSpinnyPart" type="Node2D" parent="." unique_id=1245683946]
+
+[node name="Wheel" type="Sprite2D" parent="ActualSpinnyPart" unique_id=889429613]
+texture = ExtResource("3_bqp8g")
+
+[node name="WheelFlipperThing" type="Sprite2D" parent="." unique_id=1437654705]
+position = Vector2(250, 0)
+texture = ExtResource("3_dpgcp")

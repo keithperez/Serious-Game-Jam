@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dg2rdp6pauqiq"]
+
+[ext_resource type="Texture2D" uid="uid://ch0smegq3bjm0" path="res://assets/placeholder/placeholder_character.png" id="1_37jy7"]
+[ext_resource type="Script" uid="uid://dxrqdh70uwac2" path="res://scripts/sidescroller_player.gd" id="1_t7yn0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t7yn0"]
+
+[node name="SidescrollerPlayer" type="CharacterBody2D" unique_id=1154316583]
+script = ExtResource("1_t7yn0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1577687336]
+texture = ExtResource("1_37jy7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=316305638]
+shape = SubResource("CapsuleShape2D_t7yn0")
