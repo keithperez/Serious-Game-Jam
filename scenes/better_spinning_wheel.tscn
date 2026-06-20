@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dsv4f6qt7dodn"]
+
+[ext_resource type="Script" uid="uid://n6relki0sjl6" path="res://scenes/better_spinning_wheel.gd" id="1_m6bpy"]
+[ext_resource type="PackedScene" uid="uid://dtrrlybykhxi0" path="res://scenes/spinning_wheel_eighth.tscn" id="2_t75ol"]
+
+[node name="BetterSpinningWheel" type="Control" unique_id=562226638]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m6bpy")
+wheel_eighth_sections = ExtResource("2_t75ol")
+
+[node name="ATTACHNODECHILDRENHERE" type="Node2D" parent="." unique_id=132151922]

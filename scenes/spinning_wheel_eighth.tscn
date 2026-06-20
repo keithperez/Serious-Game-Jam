@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dtrrlybykhxi0"]
+
+[ext_resource type="Texture2D" uid="uid://de2hq3dimcwve" path="res://assets/wheel_sign/wheel_spin_piece0.png" id="1_mvunp"]
+[ext_resource type="Script" uid="uid://dqrbx035rucqd" path="res://scripts/slice.gd" id="1_qtkgu"]
+[ext_resource type="Texture2D" uid="uid://vywciht34syt" path="res://assets/wheel_sign/wheel_spin_piece1.png" id="2_n4ven"]
+[ext_resource type="Texture2D" uid="uid://bra2p87rwuwaj" path="res://assets/placeholder/placeholder_logo.png" id="4_3f1jk"]
+
+[node name="SpinningWheelEighth" type="Control" unique_id=1218123403]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qtkgu")
+
+[node name="Outline" type="Sprite2D" parent="." unique_id=678876512]
+position = Vector2(75, -53.5)
+texture = ExtResource("1_mvunp")
+
+[node name="WhitePart" type="Sprite2D" parent="." unique_id=247561991]
+position = Vector2(75, -53.5)
+texture = ExtResource("2_n4ven")
+
+[node name="LogoPart" type="Sprite2D" parent="." unique_id=1200849460]
+position = Vector2(107, -44.5)
+rotation = -1.9459621
+texture = ExtResource("4_3f1jk")

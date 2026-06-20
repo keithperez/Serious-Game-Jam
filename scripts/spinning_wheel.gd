@@ -31,14 +31,15 @@ func prep_wheel() -> void:
 		label.label_settings = labelsetting
 		wheel.add_child(label)
 
+func activate() -> void:
+	wheel_velocity = wheel_start_velocity
+	rng = RandomNumberGenerator.new()
+	wheel_friction += rng.randf_range(-0.005, 0.005)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spacing = 2 * PI / options.size()
 	labelsetting.font_color = Color.BLACK
-	prep_wheel()
-	wheel_velocity = wheel_start_velocity
-	rng = RandomNumberGenerator.new()
-	wheel_friction += rng.randf_range(-0.005, 0.005)
 
 func _physics_process(delta: float) -> void:
 	if wheel_velocity > 0.05:
