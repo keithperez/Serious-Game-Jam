@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bv31ew3o28nro"]
+
+[ext_resource type="Script" uid="uid://dwhutm7iq0d3s" path="res://scripts/hud.gd" id="1_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://bttroh087ygkg" path="res://assets/icons/health_icon.png" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://3tmjodgrm4v5" path="res://assets/icons/potion_icon.png" id="2_5ysmq"]
+[ext_resource type="PackedScene" uid="uid://dsv4f6qt7dodn" path="res://scenes/better_spinning_wheel.tscn" id="3_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://cwnekcfv12k33" path="res://assets/wheel_flipper_thing.png" id="5_uo2fv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qmd"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="HUD" type="Control" unique_id=141736504]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6fi6k")
+
+[node name="BarContainer" type="VBoxContainer" parent="." unique_id=768530351]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 545.0
+offset_right = 386.0
+offset_bottom = 613.0
+
+[node name="HealthContainer" type="HBoxContainer" parent="BarContainer" unique_id=790069939]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="HealthIcon" type="TextureRect" parent="BarContainer/HealthContainer" unique_id=1312870505]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_ahhtf")
+
+[node name="HealthBar" type="ProgressBar" parent="BarContainer/HealthContainer" unique_id=480245671]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_yf5fn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_57qmd")
+value = 50.0
+
+[node name="HealContainer" type="HBoxContainer" parent="BarContainer" unique_id=1390682315]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="HealthPotionTexture" type="TextureRect" parent="BarContainer/HealContainer" unique_id=351213765]
+layout_mode = 2
+texture = ExtResource("2_5ysmq")
+
+[node name="PotionsRemaining" type="Label" parent="BarContainer/HealContainer" unique_id=1922149107]
+layout_mode = 2
+text = "#"
+
+[node name="BetterSpinningWheel" parent="." unique_id=562226638 instance=ExtResource("3_6fi6k")]
+layout_mode = 1
+offset_left = 554.0
+offset_top = 528.0
+offset_right = 554.0
+offset_bottom = 528.0
+
+[node name="WheelThing" type="TextureRect" parent="." unique_id=1161042801]
+z_index = 2
+layout_mode = 0
+offset_left = 647.615
+offset_top = 508.0
+offset_right = 711.615
+offset_bottom = 548.0
+texture = ExtResource("5_uo2fv")

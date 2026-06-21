@@ -4,3 +4,13 @@
 
 [node name="GameManager" type="Node" unique_id=211630642]
 script = ExtResource("1_s8hob")
+
+[node name="FadingScreen" type="CanvasLayer" parent="." unique_id=1104831307]
+
+[node name="ColorRect" type="ColorRect" parent="FadingScreen" unique_id=1639278325]
+offset_left = -54.0
+offset_top = -36.0
+offset_right = 1261.0
+offset_bottom = 685.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://jt3ccyej6onw"]
+
+[ext_resource type="Script" uid="uid://bjraiaq85lhnt" path="res://scripts/base_enemy.gd" id="1_sw3va"]
+[ext_resource type="Texture2D" uid="uid://ei62wgkp4me5" path="res://assets/placeholder/enemy_placeholder_art.png" id="2_2kb2m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kb2m"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="BaseEnemy" type="Node2D" unique_id=1606080847]
+script = ExtResource("1_sw3va")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=100000400]
+texture = ExtResource("2_2kb2m")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1967075177]
+offset_left = -187.0
+offset_top = -175.0
+offset_right = 187.0
+offset_bottom = -148.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_2kb2m")
+value = 50.0
+show_percentage = false
