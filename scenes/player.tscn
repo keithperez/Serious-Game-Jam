@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://byqw047u2efej"]
+
+[ext_resource type="Texture2D" uid="uid://ei62wgkp4me5" path="res://assets/placeholder/enemy_placeholder_art.png" id="1_dqkch"]
+[ext_resource type="Script" uid="uid://ci1yrknxkf00" path="res://scripts/player.gd" id="1_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://c0plk4kla8nv7" path="res://assets/icons/attack_icon.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://lhj73riy02xi" path="res://assets/icons/magic_icon.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://y11p7o2tlw3e" path="res://assets/icons/healing_icon.png" id="4_fjrip"]
+
+[node name="Player" type="Node2D" unique_id=462536162]
+script = ExtResource("1_qlg0r")
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=560832551]
+texture = ExtResource("1_dqkch")
+
+[node name="Buttons" type="Node2D" parent="." unique_id=599883213]
+position = Vector2(-172, -199)
+
+[node name="AttackButton" type="Button" parent="Buttons" unique_id=1822844375]
+offset_left = -75.0
+offset_top = 125.0
+offset_right = 83.0
+offset_bottom = 173.0
+icon = ExtResource("2_qlg0r")
+icon_alignment = 1
+
+[node name="MagicButton" type="Button" parent="Buttons" unique_id=1332849949]
+offset_left = -75.0
+offset_top = 175.0
+offset_right = 83.0
+offset_bottom = 223.0
+icon = ExtResource("3_tuyoq")
+
+[node name="HealButton" type="Button" parent="Buttons" unique_id=1679680963]
+offset_left = -75.0
+offset_top = 225.0
+offset_right = 83.0
+offset_bottom = 273.0
+icon = ExtResource("4_fjrip")
+
+[connection signal="pressed" from="Buttons/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="Buttons/MagicButton" to="." method="_on_magic_button_pressed"]
+[connection signal="pressed" from="Buttons/HealButton" to="." method="_on_heal_button_pressed"]
