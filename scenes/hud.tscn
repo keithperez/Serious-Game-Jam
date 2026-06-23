@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://3tmjodgrm4v5" path="res://assets/icons/potion_icon.png" id="2_5ysmq"]
 [ext_resource type="PackedScene" uid="uid://dsv4f6qt7dodn" path="res://scenes/better_spinning_wheel.tscn" id="3_6fi6k"]
 [ext_resource type="Texture2D" uid="uid://cwnekcfv12k33" path="res://assets/wheel_flipper_thing.png" id="5_uo2fv"]
+[ext_resource type="Script" uid="uid://tli3cho4tyvl" path="res://scripts/upgrade_displayer.gd" id="6_047uy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
 bg_color = Color(0, 0, 0, 1)
@@ -75,3 +76,162 @@ offset_top = 508.0
 offset_right = 711.615
 offset_bottom = 548.0
 texture = ExtResource("5_uo2fv")
+
+[node name="UpgradeOverlay" type="VBoxContainer" parent="." unique_id=81841991]
+z_index = 1
+custom_maximum_size = Vector2(-1, 300)
+layout_mode = 0
+offset_left = 75.0
+offset_top = 192.0
+offset_right = 1075.0
+offset_bottom = 492.0
+
+[node name="PickAnUpgradeText" type="Label" parent="UpgradeOverlay" unique_id=1348975189]
+layout_mode = 2
+text = "Pick an Upgrade!"
+horizontal_alignment = 1
+
+[node name="UpgradeButtonContainer" type="HBoxContainer" parent="UpgradeOverlay" unique_id=1666150466]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+alignment = 1
+
+[node name="UpgradeDisplayer1" type="Button" parent="UpgradeOverlay/UpgradeButtonContainer" unique_id=1767232290]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+script = ExtResource("6_047uy")
+
+[node name="WhichWheel" type="Label" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer1" unique_id=1540141060]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 137.0
+offset_bottom = 31.0
+text = "Attacking Wheel"
+horizontal_alignment = 1
+
+[node name="WhatRarity" type="Label" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer1" unique_id=1830952748]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 42.0
+offset_right = 141.0
+offset_bottom = 65.0
+text = "Common"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer1" unique_id=1779423289]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 74.0
+offset_right = 142.0
+offset_bottom = 194.0
+mouse_filter = 2
+text = "Attacking wheel rolls all increase damage by +1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeDisplayer2" type="Button" parent="UpgradeOverlay/UpgradeButtonContainer" unique_id=728585291]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+script = ExtResource("6_047uy")
+
+[node name="WhichWheel" type="Label" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer2" unique_id=1929556039]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 137.0
+offset_bottom = 31.0
+text = "Attacking Wheel"
+horizontal_alignment = 1
+
+[node name="WhatRarity" type="Label" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer2" unique_id=947373236]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 42.0
+offset_right = 143.0
+offset_bottom = 65.0
+text = "Common"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer2" unique_id=109562717]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 74.0
+offset_right = 142.0
+offset_bottom = 194.0
+mouse_filter = 2
+text = "Attacking wheel rolls all increase damage by +1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeDisplayer3" type="Button" parent="UpgradeOverlay/UpgradeButtonContainer" unique_id=66090073]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+script = ExtResource("6_047uy")
+
+[node name="WhichWheel" type="Label" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer3" unique_id=677953836]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 137.0
+offset_bottom = 31.0
+text = "Attacking Wheel"
+horizontal_alignment = 1
+
+[node name="WhatRarity" type="Label" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer3" unique_id=501466103]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 42.0
+offset_right = 138.0
+offset_bottom = 65.0
+text = "Common"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer3" unique_id=1771261841]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 74.0
+offset_right = 142.0
+offset_bottom = 194.0
+mouse_filter = 2
+text = "Attacking wheel rolls all increase damage by +1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeDisplayer4" type="Button" parent="UpgradeOverlay/UpgradeButtonContainer" unique_id=1105569244]
+visible = false
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+script = ExtResource("6_047uy")
+
+[node name="WhichWheel" type="Label" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer4" unique_id=2048495853]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 137.0
+offset_bottom = 31.0
+text = "Attacking Wheel"
+
+[node name="WhatRarity" type="Label" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer4" unique_id=276646640]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 42.0
+offset_right = 111.0
+offset_bottom = 65.0
+text = "Common"
+
+[node name="Description" type="RichTextLabel" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer4" unique_id=1016788094]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 74.0
+offset_right = 142.0
+offset_bottom = 194.0
+mouse_filter = 2
+text = "Attacking wheel rolls all increase damage by +1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer1" to="." method="_on_upgrade_displayer_1_pressed"]
+[connection signal="pressed" from="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer2" to="." method="_on_upgrade_displayer_2_pressed"]
+[connection signal="pressed" from="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer3" to="." method="_on_upgrade_displayer_3_pressed"]
+[connection signal="pressed" from="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer4" to="." method="_on_upgrade_displayer_4_pressed"]

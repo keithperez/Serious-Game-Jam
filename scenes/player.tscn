@@ -37,6 +37,17 @@ offset_right = 83.0
 offset_bottom = 273.0
 icon = ExtResource("4_fjrip")
 
+[node name="DescribingOptions" type="RichTextLabel" parent="." unique_id=692584480]
+offset_left = -245.0
+offset_top = -210.0
+offset_right = -90.0
+offset_bottom = -81.0
+text = "placeholder
+I LOVE, PLACEHOLDERS!
+THEY'RE SOOOO GOOD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Buttons/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="pressed" from="Buttons/MagicButton" to="." method="_on_magic_button_pressed"]
 [connection signal="pressed" from="Buttons/HealButton" to="." method="_on_heal_button_pressed"]

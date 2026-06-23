@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dsv4f6qt7dodn"]
 
-[ext_resource type="Script" uid="uid://n6relki0sjl6" path="res://scenes/better_spinning_wheel.gd" id="1_m6bpy"]
+[ext_resource type="Script" uid="uid://n6relki0sjl6" path="res://scripts/better_spinning_wheel.gd" id="1_m6bpy"]
 [ext_resource type="PackedScene" uid="uid://dtrrlybykhxi0" path="res://scenes/spinning_wheel_eighth.tscn" id="2_t75ol"]
 
 [node name="BetterSpinningWheel" type="Control" unique_id=562226638]

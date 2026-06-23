@@ -5,6 +5,10 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kb2m"]
 bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="BaseEnemy" type="Node2D" unique_id=1606080847]
 script = ExtResource("1_sw3va")
@@ -20,3 +24,10 @@ offset_bottom = -148.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_2kb2m")
 value = 50.0
 show_percentage = false
+
+[node name="Numbers" type="Label" parent="." unique_id=1700023611]
+offset_left = -35.0
+offset_top = -175.0
+offset_right = 35.0
+offset_bottom = -152.0
+text = "100 / 100"

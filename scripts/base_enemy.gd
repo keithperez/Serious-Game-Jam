@@ -1,15 +1,18 @@
 class_name BaseEnemy
 extends Node2D
 
+var max_health: int
 var health: int
 var standard_attack_damage: int
 var alternative_move_chance: float = 0.0
 
 @onready var texture: Sprite2D = $Sprite2D
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var health_bar_numbers: Label = $Numbers
 
 func load_enemy(texture_path: String, inital_hp: int, initial_atk_damage: int, alt_move_chance: float = 0.0) -> void:
 	texture.texture = load(texture_path)
+	max_health = inital_hp
 	health = inital_hp
 	standard_attack_damage = initial_atk_damage
 	alternative_move_chance = alt_move_chance
@@ -19,6 +22,7 @@ func load_enemy(texture_path: String, inital_hp: int, initial_atk_damage: int, a
 func take_damage(damage: int) -> void:
 	health -= damage
 	health_bar.value = health
+	health_bar_numbers.text = "%d / %d" % [health, max_health]
 
 func deal_damage() -> void:
 	pass

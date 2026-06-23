@@ -47,7 +47,7 @@ func load_wheel(input_data: Array, starting_friction: float, wheel_sections: int
 var roulette_number_sequence: Array[int] = [2,13,4,17,8,14,6,18,3,19,1,12,11,9,16, 5, 20, 7, 15, 10]
 func load_roulette_wheel(starting_friction: float) -> void:
 	data = roulette_number_sequence
-	wheel_friction = starting_friction
+	wheel_starting_friction = starting_friction
 	spacing = 2 * PI / 20
 	var sprite: Sprite2D = Sprite2D.new()
 	sprite.texture = load("res://assets/placeholder/wheel_not_final_with_numbers.png")
@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		bsNum = wheel_velocity * delta
 		wheelspinnerthing.rotation += bsNum
 		change_in_rotation += bsNum
-		wheel_velocity *= 1 - wheel_friction
+		wheel_velocity *= (1 - wheel_friction)
 		#if wheel_velocity > 10:
 			#if change_in_rotation >= 2 * spacing:
 				#change_in_rotation -= 2 * spacing
@@ -82,9 +82,8 @@ func _physics_process(delta: float) -> void:
 			change_in_rotation -= spacing
 			AudioManager.play_sfx("res://assets/sfx/Spinning_Tick_victorabdo_cropped.mp3")
 	else:
-		emit_signal("send_out_what_wheel_landed_on", get_data_of_current_index())
-		print(get_data_of_current_index())
 		idling = true
+		emit_signal("send_out_what_wheel_landed_on", get_data_of_current_index())
 		
 func get_current_slice_index() -> int:
 	return floori(fmod(wheelspinnerthing.rotation, 2*PI) / spacing)
