@@ -37,11 +37,11 @@ offset_right = 83.0
 offset_bottom = 273.0
 icon = ExtResource("4_fjrip")
 
-[node name="DescribingOptions" type="RichTextLabel" parent="." unique_id=692584480]
-offset_left = -245.0
-offset_top = -210.0
-offset_right = -90.0
-offset_bottom = -81.0
+[node name="DescribingOptions" type="RichTextLabel" parent="Buttons" unique_id=692584480]
+offset_left = -73.0
+offset_top = -11.0
+offset_right = 82.0
+offset_bottom = 118.0
 text = "placeholder
 I LOVE, PLACEHOLDERS!
 THEY'RE SOOOO GOOD"

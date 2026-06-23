@@ -2,10 +2,11 @@ class_name HUD
 extends Control
 
 @onready var wheel: Wheel = $BetterSpinningWheel
-@onready var health_bar: ProgressBar = $BarContainer/HealthContainer/HealthBar
+@onready var health_bar: ProgressBar = $BarContainer/HealthContainer/PanelContainer/HealthBar
 @onready var number_of_heals: Label = $BarContainer/HealContainer/PotionsRemaining
 @onready var upgradebuttoncontainer: VBoxContainer = $UpgradeOverlay
 @onready var upgrade_buttons: HBoxContainer = $UpgradeOverlay/UpgradeButtonContainer
+@onready var health_bar_text: Label = $BarContainer/HealthContainer/PanelContainer/Label
 
 signal upgrade_selected(index: int)
 
@@ -16,6 +17,7 @@ func _ready() -> void:
 func _update_player_health(PlayerHealth: int, PlayerMaxHealth: int, FlasksRemaining: int) -> void:
 	health_bar.max_value = PlayerMaxHealth
 	health_bar.value = PlayerHealth
+	health_bar_text.text = "%d / %d" % [PlayerHealth, PlayerMaxHealth]
 	number_of_heals.text = str(FlasksRemaining)
 
 func change_button(index: int, upgrade: BaseUpgrade) -> void:

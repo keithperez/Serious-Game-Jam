@@ -4,20 +4,22 @@ extends Node2D
 var max_health: int
 var health: int
 var standard_attack_damage: int
-var alternative_move_chance: float = 0.0
+var how_long_to_attack: float = 0.0
 
 @onready var texture: Sprite2D = $Sprite2D
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var health_bar_numbers: Label = $Numbers
+@onready var general_timer: Timer = $GeneralTimer
 
-func load_enemy(texture_path: String, inital_hp: int, initial_atk_damage: int, alt_move_chance: float = 0.0) -> void:
+func load_enemy(texture_path: String, inital_hp: int, initial_atk_damage: int, alt_move_chance: float = 1.0) -> void:
 	texture.texture = load(texture_path)
 	max_health = inital_hp
 	health = inital_hp
 	standard_attack_damage = initial_atk_damage
-	alternative_move_chance = alt_move_chance
+	how_long_to_attack = alt_move_chance
 	health_bar.max_value = inital_hp
 	health_bar.value = health
+	health_bar_numbers.text = "%d / %d" % [health, max_health]
 
 func take_damage(damage: int) -> void:
 	health -= damage
@@ -25,4 +27,7 @@ func take_damage(damage: int) -> void:
 	health_bar_numbers.text = "%d / %d" % [health, max_health]
 
 func deal_damage() -> void:
-	pass
+	general_timer.start(how_long_to_attack)
+
+func _on_general_timer_timeout() -> void:
+	GameManager.player_take_damage(standard_attack_damage)

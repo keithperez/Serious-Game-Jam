@@ -23,6 +23,7 @@ var AttackTwiceLegendary: bool = false
 var UnderMaxHealthLegendary: bool = false
 var MaxHealthOverhealLegendary: bool = false
 var InvincibleHealLegendary: bool = false
+var InvincibleTurns: int = 0
 
 #boss upgrades
 var Boss_MoreUpgrades: bool = false
@@ -56,7 +57,17 @@ func new_game_player_reset(character: CharacterType) -> void:
 
 func player_send_status() -> void:
 	emit_signal("update_player_health", PlayerHealth, PlayerMaxHealth, PlayerRestorationPotions)
-	
+
+func player_healed_for(heal: int) -> void:
+	if MaxHealthOverhealLegendary:
+		if PlayerHealth + heal > PlayerMaxHealth:
+			PlayerMaxHealth = PlayerHealth + heal
+			PlayerHealth = PlayerMaxHealth
+	else:
+		PlayerHealth = min(PlayerHealth + heal, PlayerMaxHealth)
+	emit_signal("update_player_health", PlayerHealth, PlayerMaxHealth, PlayerRestorationPotions)
+
 func player_take_damage(damage: int) -> void:
 	PlayerHealth -= damage
 	emit_signal("update_player_health", PlayerHealth, PlayerMaxHealth, PlayerRestorationPotions)
+	

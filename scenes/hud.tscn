@@ -41,13 +41,24 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_ahhtf")
 
-[node name="HealthBar" type="ProgressBar" parent="BarContainer/HealthContainer" unique_id=480245671]
+[node name="PanelContainer" type="PanelContainer" parent="BarContainer/HealthContainer" unique_id=283627087]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="BarContainer/HealthContainer/PanelContainer" unique_id=480245671]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_yf5fn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_57qmd")
 value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="BarContainer/HealthContainer/PanelContainer" unique_id=1106334969]
+layout_mode = 2
+text = "placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HealContainer" type="HBoxContainer" parent="BarContainer" unique_id=1390682315]
 layout_mode = 2

@@ -9,7 +9,7 @@ signal action_emitter(action: actionSelected)
 @onready var atk_button: Button = $Buttons/AttackButton
 @onready var mgk_button: Button = $Buttons/MagicButton
 @onready var heal_button: Button = $Buttons/HealButton
-@onready var describe: RichTextLabel = $DescribingOptions
+@onready var describe: RichTextLabel = $Buttons/DescribingOptions
 
 func _physics_process(_delta: float) -> void:
 	if atk_button.is_hovered():
