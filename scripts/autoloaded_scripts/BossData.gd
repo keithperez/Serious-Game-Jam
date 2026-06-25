@@ -1,0 +1,26 @@
+extends Node
+
+var data: Array = [
+	["res://assets/placeholder/boss_placeholder_art.png", "res://assets/placeholder/boss_placeholder_art.png",  1, 10, 1.0, Color.WHITE]
+]
+
+func get_data_from_index(index: int) -> Array:
+	return data[index]
+
+func get_texture_path_from_index(index: int) -> String:
+	return data[index][0]
+
+func get_modulating_texture_path_from_index(index: int) -> String:
+	return data[index][1]
+
+func get_inital_HP_from_index(index: int) -> int:
+	return data[index][2]
+
+func get_atk_damage_from_index(index: int) -> int:
+	return data[index][3]
+
+func get_how_long_to_attack_from_index(index: int) -> float:
+	return data[index][4]
+	
+func get_color_from_index(index: int) -> Color:
+	return data[index][5]

@@ -89,6 +89,7 @@ offset_bottom = 548.0
 texture = ExtResource("5_uo2fv")
 
 [node name="UpgradeOverlay" type="VBoxContainer" parent="." unique_id=81841991]
+visible = false
 z_index = 1
 custom_maximum_size = Vector2(-1, 300)
 layout_mode = 0
@@ -242,7 +243,19 @@ text = "Attacking wheel rolls all increase damage by +1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Notification" type="Label" parent="." unique_id=1623877974]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_right = 1122.0
+offset_bottom = 31.0
+text = "placeholder: notification system goes here!"
+
+[node name="NotificationTimer" type="Timer" parent="Notification" unique_id=1872342835]
+one_shot = true
+
 [connection signal="pressed" from="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer1" to="." method="_on_upgrade_displayer_1_pressed"]
 [connection signal="pressed" from="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer2" to="." method="_on_upgrade_displayer_2_pressed"]
 [connection signal="pressed" from="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer3" to="." method="_on_upgrade_displayer_3_pressed"]
 [connection signal="pressed" from="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer4" to="." method="_on_upgrade_displayer_4_pressed"]
+[connection signal="timeout" from="Notification/NotificationTimer" to="." method="_on_notification_timer_timeout"]

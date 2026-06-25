@@ -1,8 +1,8 @@
 class_name UpgradeDisplayer
 extends Button
 
-enum wheel_type {ATTACK, SPECIAL, HEAL}
-enum rarity_types {COMMON, UNCOMMON, RARE, LEGENDARY}
+enum wheel_type {ATTACK, SPECIAL, HEAL, BOSS}
+enum rarity_types {COMMON, UNCOMMON, RARE, LEGENDARY, NONE}
 
 @onready var which_wheel: Label = $WhichWheel
 @onready var which_rarity: Label = $WhatRarity
@@ -16,6 +16,8 @@ func set_which_wheel(type: wheel_type) -> void:
 			which_wheel.text = "Special Wheel"
 		wheel_type.HEAL:
 			which_wheel.text = "Heal Wheel"
+		wheel_type.BOSS:
+			which_wheel.text = "Boss Upgrade"
 
 func set_which_rarity(type: rarity_types) -> void:
 	match type:
@@ -27,6 +29,8 @@ func set_which_rarity(type: rarity_types) -> void:
 			which_rarity.text = "Rare"
 		rarity_types.LEGENDARY:
 			which_rarity.text = "LEGENDARY"
+		rarity_types.NONE:
+			which_rarity.text = ""
 
 func set_description(input_text: String) -> void:
 	description.text = input_text
