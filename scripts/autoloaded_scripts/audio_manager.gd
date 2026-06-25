@@ -27,9 +27,10 @@ func _on_stream_finished(stream: AudioStreamPlayer) -> void:
 func play_sfx(path: String) -> void:
 	queue.append(path)
 
-func play_music(path: String) -> void:
+func play_music(path: String, change_decibels: int) -> void:
 	music.bus = "Music"
 	music.stream = load(path)
+	music.volume_db = change_decibels
 	music.play()
 
 func _process(_delta: float) -> void:

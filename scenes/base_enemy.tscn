@@ -11,9 +11,13 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [node name="BaseEnemy" type="Node2D" unique_id=1606080847]
+visible = false
 script = ExtResource("1_sw3va")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=100000400]
+texture = ExtResource("2_2kb2m")
+
+[node name="ModulatingSprite" type="Sprite2D" parent="." unique_id=842074168]
 texture = ExtResource("2_2kb2m")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=1967075177]

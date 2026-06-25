@@ -24,12 +24,15 @@ func _physics_process(_delta: float) -> void:
 
 func _on_attack_button_pressed() -> void:
 	emit_signal("action_emitter", actionSelected.ATTACK)
+	AudioManager.play_sfx("res://assets/sfx/Spinning_Tick_victorabdo_cropped.mp3")
 	pass # Replace with function body.
 
 func _on_magic_button_pressed() -> void:
 	emit_signal("action_emitter", actionSelected.SPECIAL)
+	AudioManager.play_sfx("res://assets/sfx/Spinning_Tick_victorabdo_cropped.mp3")
 	pass # Replace with function body.
 
 func _on_heal_button_pressed() -> void:
 	emit_signal("action_emitter", actionSelected.HEAL)
+	AudioManager.play_sfx("res://assets/sfx/Spinning_Tick_victorabdo_cropped.mp3")
 	pass # Replace with function body.

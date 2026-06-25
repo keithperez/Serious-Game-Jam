@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djdbapbd4wd5x"
+path="res://.godot/imported/Whims of Fate - Persona 5.mp3.mp3-00d4e5cffa59ad100b617262614d88ca.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Whims of Fate - Persona 5.mp3.mp3"
+dest_files=["res://.godot/imported/Whims of Fate - Persona 5.mp3.mp3-00d4e5cffa59ad100b617262614d88ca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
