@@ -3,7 +3,22 @@ extends Node
 var data: Array = [
 	# texture path: String, modulate_texture: String, inital_hp: int, atk_damage: int, how_long_to_attack: float, color: Color = Color.WHITE
 	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE],
-	["res://assets/enemy_textures/poolball_outline.png", "res://assets/enemy_textures/poolball_whitespace.png", 40, 7, 1.0, Color.RED]
+	["res://assets/enemy_textures/poolball_outline.png", "res://assets/enemy_textures/poolball_whitespace.png", 40, 7, 1.0, Color.RED],
+	["res://assets/enemy_textures/horse_outline.png", "res://assets/enemy_textures/horse_white.png", 50, 10, 1.0, Color.SADDLE_BROWN],
+	["res://assets/enemy_textures/chips.png", "res://assets/enemy_textures/chips.png", 40, 12, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/Peter_Griffin-1.png.png", "res://assets/enemy_textures/Peter_Griffin-1.png.png", 100, 10, 1.0, Color.WHITE],
+	["res://assets/placeholder/enemy_placeholder_art.png", "res://assets/placeholder/enemy_placeholder_art.png", 1, 1, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 70, 8, 1.0, Color.REBECCA_PURPLE],
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE]
 ]
 
 func get_data_from_index(index: int) -> Array:

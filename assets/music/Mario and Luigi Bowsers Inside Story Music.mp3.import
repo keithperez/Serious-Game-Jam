@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blcvm2suoa5by"
+path="res://.godot/imported/Mario and Luigi Bowsers Inside Story Music.mp3-c4059ab23e6e96c9a09191352dd02e1c.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Mario and Luigi Bowsers Inside Story Music.mp3"
+dest_files=["res://.godot/imported/Mario and Luigi Bowsers Inside Story Music.mp3-c4059ab23e6e96c9a09191352dd02e1c.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

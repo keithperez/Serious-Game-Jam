@@ -1,7 +1,9 @@
 extends Node
 
 var data: Array = [
-	["res://assets/placeholder/boss_placeholder_art.png", "res://assets/placeholder/boss_placeholder_art.png",  1, 10, 1.0, Color.WHITE]
+	["res://assets/placeholder/boss_placeholder_art.png", "res://assets/placeholder/boss_placeholder_art.png",  100, 15, 1.0, Color.WHITE],
+	["res://assets/placeholder/boss_placeholder_art.png", "res://assets/placeholder/boss_placeholder_art.png",  250, 25, 1.0, Color.WHITE],
+	["res://assets/placeholder/boss_placeholder_art.png", "res://assets/placeholder/boss_placeholder_art.png",  500, 40, 1.0, Color.WHITE]
 ]
 
 func get_data_from_index(index: int) -> Array:

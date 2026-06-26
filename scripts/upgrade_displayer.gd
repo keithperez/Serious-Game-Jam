@@ -38,6 +38,7 @@ func set_which_rarity(type: rarity_types) -> void:
 			labelsettings.font_color = Color.GOLD
 		rarity_types.NONE:
 			which_rarity.text = ""
+			labelsettings.font_color = Color.RED
 
 func set_description(input_text: String) -> void:
 	description.text = "[font_size=14]" + input_text

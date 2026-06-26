@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn1u38ide5c8j"
-path="res://.godot/imported/magic_icon.png-2436a5949af9b36e7c8a8bc639d6724e.ctex"
+uid="uid://cpmcy5me6i10b"
+path="res://.godot/imported/horse_outline.png-04edfad1459e115512b69423042a4268.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/magic_icon.png"
-dest_files=["res://.godot/imported/magic_icon.png-2436a5949af9b36e7c8a8bc639d6724e.ctex"]
+source_file="res://assets/enemy_textures/horse_outline.png"
+dest_files=["res://.godot/imported/horse_outline.png-04edfad1459e115512b69423042a4268.ctex"]
 
 [params]
 

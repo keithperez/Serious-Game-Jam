@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn1u38ide5c8j"
-path="res://.godot/imported/magic_icon.png-2436a5949af9b36e7c8a8bc639d6724e.ctex"
+uid="uid://bggtkk3kg0mox"
+path="res://.godot/imported/Peter_Griffin-1.png.png-d2d2a7ed8abf5e0a882c933e9b5e8e6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/magic_icon.png"
-dest_files=["res://.godot/imported/magic_icon.png-2436a5949af9b36e7c8a8bc639d6724e.ctex"]
+source_file="res://assets/enemy_textures/Peter_Griffin-1.png.png"
+dest_files=["res://.godot/imported/Peter_Griffin-1.png.png-d2d2a7ed8abf5e0a882c933e9b5e8e6a.ctex"]
 
 [params]
 

@@ -3,16 +3,32 @@
 [ext_resource type="Script" uid="uid://ci1yrknxkf00" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://c0plk4kla8nv7" path="res://assets/icons/attack_icon.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cc85wqnmnjthy" path="res://assets/Sprites/protag.png.png" id="2_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://lhj73riy02xi" path="res://assets/icons/magic_icon.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://bn1u38ide5c8j" path="res://assets/icons/magic_icon.png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://y11p7o2tlw3e" path="res://assets/icons/healing_icon.png" id="4_fjrip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": 1,
+"name": &"standing",
+"speed": 5.0
+}]
 
 [node name="Player" type="Node2D" unique_id=462536162]
 script = ExtResource("1_qlg0r")
 
-[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=560832551]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=627316534]
 position = Vector2(-0.9999962, -3.8146973e-06)
 scale = Vector2(4.40625, 4.40625)
-texture = ExtResource("2_tuyoq")
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"standing"
 
 [node name="Buttons" type="Node2D" parent="." unique_id=599883213]
 position = Vector2(-172, -199)

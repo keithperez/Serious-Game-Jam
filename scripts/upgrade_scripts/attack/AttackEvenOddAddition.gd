@@ -1,7 +1,7 @@
 class_name AttackEvenOddAddition
 extends BaseUpgrade
 
-var effect: int = 4
+var effect: int = 5
 var even_or_odd: bool
 
 func _init() -> void:

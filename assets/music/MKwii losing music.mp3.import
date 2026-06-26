@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdr1qxgr5ngea"
+path="res://.godot/imported/MKwii losing music.mp3-4a4728a2f4c9e9d3dadb83e767ab3c1b.mp3str"
+
+[deps]
+
+source_file="res://assets/music/MKwii losing music.mp3"
+dest_files=["res://.godot/imported/MKwii losing music.mp3-4a4728a2f4c9e9d3dadb83e767ab3c1b.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=10.2
+bpm=0.0
+beat_count=0
+bar_beats=4

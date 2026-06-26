@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn1u38ide5c8j"
-path="res://.godot/imported/magic_icon.png-2436a5949af9b36e7c8a8bc639d6724e.ctex"
+uid="uid://bawjda8dw2fm8"
+path="res://.godot/imported/chips.png-2aca0016d6226fc7d1aef7396580898a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/magic_icon.png"
-dest_files=["res://.godot/imported/magic_icon.png-2436a5949af9b36e7c8a8bc639d6724e.ctex"]
+source_file="res://assets/enemy_textures/chips.png"
+dest_files=["res://.godot/imported/chips.png-2aca0016d6226fc7d1aef7396580898a.ctex"]
 
 [params]
 
