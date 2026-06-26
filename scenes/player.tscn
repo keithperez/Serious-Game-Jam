@@ -2,23 +2,37 @@
 
 [ext_resource type="Script" uid="uid://ci1yrknxkf00" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://c0plk4kla8nv7" path="res://assets/icons/attack_icon.png" id="2_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://cc85wqnmnjthy" path="res://assets/Sprites/protag.png.png" id="2_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://faallxstnhid" path="res://assets/Sprites/ProtagAnimated.png" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://bn1u38ide5c8j" path="res://assets/icons/magic_icon.png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://y11p7o2tlw3e" path="res://assets/icons/healing_icon.png" id="4_fjrip"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("2_tuyoq")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qlg0r")
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
 }],
 "loop": 1,
 "name": &"standing",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [node name="Player" type="Node2D" unique_id=462536162]
@@ -29,6 +43,8 @@ position = Vector2(-0.9999962, -3.8146973e-06)
 scale = Vector2(4.40625, 4.40625)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"standing"
+frame = 1
+frame_progress = 0.6414274
 
 [node name="Buttons" type="Node2D" parent="." unique_id=599883213]
 position = Vector2(-172, -199)
