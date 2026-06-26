@@ -13,9 +13,11 @@ func _init() -> void:
 		0:
 			lower_limit = 1
 			upper_limit = 5
+			effect = 10
 		1:
 			lower_limit = 6
 			upper_limit = 10
+			effect = 8
 		2:
 			lower_limit = 11
 			upper_limit = 15

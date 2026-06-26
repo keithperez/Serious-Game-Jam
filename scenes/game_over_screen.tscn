@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cnotc4ojelv0u"]
+
+[ext_resource type="Script" uid="uid://cckkk4yjw35hh" path="res://scenes/game_over_screen.gd" id="1_iwahs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 100
+
+[node name="GameOverScreen" type="Node2D" unique_id=922021960]
+script = ExtResource("1_iwahs")
+
+[node name="Label" type="Label" parent="." unique_id=1735031919]
+offset_right = 1038.0
+offset_bottom = 399.0
+text = "YOU SUCK!!!!!!!"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="BackToMainMenu" type="Button" parent="." unique_id=1680748254]
+offset_left = 376.0
+offset_top = 309.0
+offset_right = 724.0
+offset_bottom = 472.0
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]

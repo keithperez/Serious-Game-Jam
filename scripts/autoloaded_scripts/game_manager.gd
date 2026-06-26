@@ -23,6 +23,8 @@ var PlayerHealMultiplicativeUpgrades: Array[BaseUpgrade] = []
 var AttackTwiceLegendary: bool = false
 var UnderMaxHealthLegendary: bool = false
 var MaxHealthOverhealLegendary: bool = false
+
+# yeah i slimed this one out in particular
 var InvincibleHealLegendary: bool = false
 var InvincibleTurns: int = 0
 
@@ -44,10 +46,19 @@ func fade(target_alpha: float, duration: float = 1.0) -> Tween:
 	tween.tween_property(fadingscreen_color, "color:a", target_alpha, duration)
 	return tween
 
+func win_game_function() -> void:
+	await fade(1.0, 3.0).finished
+	get_tree().change_scene_to_file("res://scenes/you_win_screen.tscn")
+	fade(0.0, 1.0)
+
+func return_to_main_menu() -> void:
+	await fade(1.0, 0.5).finished
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	fade(0.0, 0.5)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#AudioManager.play_music("res://assets/music/Monkeys Spinning Monkeys_KevinMacloed.mp3")
-	AudioManager.play_music("res://assets/music/Goat_sim_song.mp3", -15)
+	randomize()
 	pass
 
 # for starting a new game (adaptable with more characters)
@@ -57,6 +68,26 @@ func new_game_player_reset(character: CharacterType) -> void:
 			PlayerMaxHealth = 100
 			PlayerHealth = 100
 			PlayerRestorationPotions = 5
+	boss_upgrade_dictionary = {
+		"MOREUPGRADES" = false,
+		"MOREFLASKS" = false,
+		"LESSEXPENSIVEWHEEL" = false,
+		"MAXHEALTH" = false,
+		"CRITS" = false
+	}
+	PlayerAttackAdditiveUpgrades = []
+	PlayerAttackMultiplicativeUpgrades = []
+
+	PlayerSpecialAdditiveUpgrades = []
+	PlayerSpecialMultiplicativeUpgrades = []
+
+	PlayerHealAdditiveUpgrades = []
+	PlayerHealMultiplicativeUpgrades = []
+
+	#legendary effects
+	AttackTwiceLegendary = false
+	UnderMaxHealthLegendary = false
+	MaxHealthOverhealLegendary = false
 	await fade(1.0, 1.5).finished
 	get_tree().change_scene_to_file("res://scenes/levels/debug_level.tscn")
 	fade(0.0, 1.5)
@@ -69,6 +100,8 @@ func player_healed_for(heal: int) -> void:
 		if PlayerHealth + heal > PlayerMaxHealth:
 			PlayerMaxHealth = PlayerHealth + heal
 			PlayerHealth = PlayerMaxHealth
+		else:
+			PlayerHealth = PlayerHealth + heal
 	else:
 		PlayerHealth = min(PlayerHealth + heal, PlayerMaxHealth)
 	emit_signal("update_player_health", PlayerHealth, PlayerMaxHealth, PlayerRestorationPotions)
@@ -86,7 +119,40 @@ func player_take_damage(damage: int) -> void:
 	PlayerHealth -= damage
 	GameManager.give_player_notification("You took %d damage!" % damage)
 	emit_signal("update_player_health", PlayerHealth, PlayerMaxHealth, PlayerRestorationPotions)
+	if PlayerHealth <= 0:
+		await fade(1.0, 5.0).finished
+		get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
+		fade(0.0, 1.5)
 
 func give_player_notification(text: String) -> void:
 	emit_signal("notify_player", text)
 	
+func make_list_of_upgrades() -> String:
+	var text: String = "Upgrades:\n"
+	text += "\n"
+	text += "Boss Upgrades:\n"
+	for key in boss_upgrade_dictionary:
+		if boss_upgrade_dictionary[key]:
+			text += key + ": Acquired\n"
+	text += "\n"
+	text += "Attack Wheel Upgrades:\n"
+	if AttackTwiceLegendary: text += "Attack twice per attack spin.\n"
+	for upgrade in PlayerAttackAdditiveUpgrades:
+		text += upgrade.description + "\n"
+	for upgrade in PlayerAttackMultiplicativeUpgrades:
+		text += upgrade.description + "\n"
+	text += "\n"
+	text += "Special Wheel Upgrades:\n"
+	if MaxHealthOverhealLegendary: text += "Lower HP gives More Special Damage.\n"
+	for upgrade in PlayerSpecialAdditiveUpgrades:
+		text += upgrade.description + "\n"
+	for upgrade in PlayerSpecialMultiplicativeUpgrades:
+		text += upgrade.description + "\n"
+	text += "\n"
+	text += "Heal Wheel Upgrades:\n"
+	if MaxHealthOverhealLegendary: text += "Heals past max health, make that the max health.\n"
+	for upgrade in PlayerHealAdditiveUpgrades:
+		text += upgrade.description + "\n"
+	for upgrade in PlayerHealMultiplicativeUpgrades:
+		text += upgrade.description + "\n"
+	return text
