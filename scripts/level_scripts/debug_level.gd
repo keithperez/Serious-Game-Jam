@@ -65,7 +65,7 @@ func run_game_logic() -> void:
 		gamestate.ENEMYTURN:
 			general_timer.start()
 			what_is_going_on = gamestate.ENEMYDOING
-		gamestate.ENEMYDOING:
+		gamestate.ENEMYDOING: # the new youre dead state
 			pass
 		gamestate.CLAIMINGUPGRADE:
 			enemy.visible = false
