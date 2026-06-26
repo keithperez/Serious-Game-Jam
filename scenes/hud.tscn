@@ -93,10 +93,10 @@ visible = false
 z_index = 1
 custom_maximum_size = Vector2(-1, 300)
 layout_mode = 0
-offset_left = 75.0
-offset_top = 192.0
-offset_right = 1075.0
-offset_bottom = 492.0
+offset_left = 74.0
+offset_top = 164.0
+offset_right = 1074.0
+offset_bottom = 464.0
 
 [node name="PickAnUpgradeText" type="Label" parent="UpgradeOverlay" unique_id=1348975189]
 layout_mode = 2

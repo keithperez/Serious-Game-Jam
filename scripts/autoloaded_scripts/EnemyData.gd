@@ -2,7 +2,8 @@ extends Node
 
 var data: Array = [
 	# texture path: String, modulate_texture: String, inital_hp: int, atk_damage: int, how_long_to_attack: float, color: Color = Color.WHITE
-	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.GREEN]
+	["res://assets/enemy_textures/dice_enemy_outline.png", "res://assets/enemy_textures/dice_enemy_whitepart.png", 30, 5, 1.0, Color.WHITE],
+	["res://assets/enemy_textures/poolball_outline.png", "res://assets/enemy_textures/poolball_whitespace.png", 40, 7, 1.0, Color.RED]
 ]
 
 func get_data_from_index(index: int) -> Array:

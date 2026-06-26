@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dpa6tgm7tsfx"]
+
+[ext_resource type="Shader" uid="uid://b32hh3ihmkpex" path="res://scroll.gdshader" id="1_47dm5"]
+[ext_resource type="Texture2D" uid="uid://bgia3hualhnn6" path="res://assets/placeholder/Practice-1.png.png" id="2_fl4wn"]
+[ext_resource type="Texture2D" uid="uid://cie5rtnd8fven" path="res://assets/placeholder/Practice-2.png.png" id="3_0t17c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("1_47dm5")
+
+[node name="Node2D" type="Node2D" unique_id=1735836713]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=596273908]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_g4v7s")
+offset_left = -1.0
+offset_right = 1154.0
+offset_bottom = 647.0
+texture = ExtResource("2_fl4wn")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=341976328]
+offset_top = 1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("3_0t17c")

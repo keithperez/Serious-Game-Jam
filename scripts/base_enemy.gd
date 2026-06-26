@@ -66,7 +66,6 @@ func update_health_bar() -> void:
 
 func deal_damage() -> void:
 	GameManager.player_take_damage(standard_attack_damage)
-	GameManager.give_player_notification("You took %d damage!" % standard_attack_damage)
 	#general_timer.start(how_long_to_attack)
 
 func _on_general_timer_timeout() -> void:

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://byqw047u2efej"]
 
-[ext_resource type="Texture2D" uid="uid://ei62wgkp4me5" path="res://assets/placeholder/enemy_placeholder_art.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://ci1yrknxkf00" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://c0plk4kla8nv7" path="res://assets/icons/attack_icon.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://cc85wqnmnjthy" path="res://assets/Sprites/protag.png.png" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://lhj73riy02xi" path="res://assets/icons/magic_icon.png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://y11p7o2tlw3e" path="res://assets/icons/healing_icon.png" id="4_fjrip"]
 
@@ -10,10 +10,18 @@
 script = ExtResource("1_qlg0r")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=560832551]
-texture = ExtResource("1_dqkch")
+position = Vector2(-0.9999962, -3.8146973e-06)
+scale = Vector2(4.40625, 4.40625)
+texture = ExtResource("2_tuyoq")
 
 [node name="Buttons" type="Node2D" parent="." unique_id=599883213]
 position = Vector2(-172, -199)
+
+[node name="Panel" type="Panel" parent="Buttons" unique_id=540608561]
+offset_left = -81.0
+offset_top = -13.0
+offset_right = 91.0
+offset_bottom = 112.0
 
 [node name="AttackButton" type="Button" parent="Buttons" unique_id=1822844375]
 offset_left = -75.0
