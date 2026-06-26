@@ -23,12 +23,19 @@ var spins_left: int = 0
 var health_taken: int = 0
 
 var enemy_index: int = 0
-var boss_indexes: Array[int] = [1, 10, 15]
+var boss_indexes: Array[int] = [5, 10, 15]
 var boss_index: int = 0
 
 var shown_upgrades: Array[BaseUpgrade] = []
 
 var common_attacking_pool: Array = [AttackAllAddition, AttackEvenOddAddition, AttackRangeAddition, AttackOneNumberAdditive, AttackAllMultiplication]
+var rare_attacking_pool: Array = []
+
+var common_special_pool: Array = []
+var rare_special_pool: Array = []
+
+var common_healing_pool: Array = []
+var rare_healing_pool: Array = []
 
 func _ready() -> void:
 	AudioManager.play_music("res://assets/music/Whims of Fate - Persona 5.mp3.mp3", -20)
@@ -106,25 +113,33 @@ func _recieve_wheel_landed_on(rolled_number: int) -> void:
 			return
 	match whatamidoing:
 		actions.ATTACK:
-			if rolled_number == 20: spins_left+= 1
+			if rolled_number == 20: 
+				spins_left+= 1
+				AudioManager.play_sfx("res://assets/sfx/peggle_free_ball_sfx.mp3", -10)
 			var damage_done = calculate_attack_damage(rolled_number)
 			enemy.take_damage(damage_done)
+			AudioManager.play_sfx("res://assets/sfx/Player_Attack_Sfx - Barogs Gaming.mp3", -20)
 			GameManager.give_player_notification("You dealt %d damage to the enemy!" % damage_done)
 		actions.SPECIAL:
 			if rolled_number == 20:
 				GameManager.player_healed_for(health_taken)
+				AudioManager.play_sfx("res://assets/sfx/peggle_free_ball_sfx.mp3", -10)
 			var damage_done = calculate_special_damage(rolled_number)
 			enemy.take_damage(damage_done)
+			AudioManager.play_sfx("res://assets/sfx/Player_Special_sfx.mp3", -10)
 			GameManager.give_player_notification("You dealt %d damage to the enemy!" % damage_done)
 		actions.HEALING:
 			if rolled_number == 20:
 				GameManager.PlayerRestorationPotions += 1
 				GameManager.player_send_status()
+				AudioManager.play_sfx("res://assets/sfx/peggle_free_ball_sfx.mp3", -10)
 			var healing_done = calculate_healing(rolled_number)
 			GameManager.player_healed_for(healing_done)
+			AudioManager.play_sfx("res://assets/sfx/Player_Healing_Sfx.mp3", 10)
 			GameManager.give_player_notification("You healed %d health!" % healing_done)
 	if enemy.health <= 0:
 		if enemy.is_boss:
+			AudioManager.play_sfx("res://assets/sfx/Boss_Death_sfx - Xubors.mp3", -20)
 			AudioManager.play_music("res://assets/music/Whims of Fate - Persona 5.mp3.mp3", -20)
 			GameManager.PlayerMaxHealth += 25
 			GameManager.PlayerHealth = GameManager.PlayerMaxHealth
@@ -218,6 +233,10 @@ func _upgrade_selected(index: int) -> void:
 					GameManager.PlayerAttackMultiplicativeUpgrades.append(shown_upgrades[index])
 		UpgradeDisplayer.wheel_type.BOSS:
 			GameManager.boss_upgrade_dictionary[shown_upgrades[index].boss_type_upgrade] = true
+			if shown_upgrades[index].boss_type_upgrade == "MAXHEALTH":
+				GameManager.PlayerMaxHealth += 25
+				GameManager.PlayerHealth = GameManager.PlayerMaxHealth
+				GameManager.player_send_status()
 	hud.upgradebuttoncontainer.visible = false
 	shown_upgrades = [] #empty the upgrades
 	what_is_going_on = gamestate.INBETWEEN
@@ -288,6 +307,7 @@ func generate_random_upgrade() -> void:
 
 
 func _on_close_tutorial_button_pressed() -> void:
+	AudioManager.play_sfx("res://assets/sfx/Spinning_Tick_victorabdo_cropped.mp3")
 	tutorial.visible = false
 	tutorialButton.visible = false
 	enemy.load_enemy_from_data(enemy_index)

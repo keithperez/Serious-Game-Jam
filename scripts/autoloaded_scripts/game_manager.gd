@@ -34,7 +34,7 @@ var boss_upgrade_dictionary: Dictionary[String, bool] = {
 	"MOREFLASKS" = false,
 	"LESSEXPENSIVEWHEEL" = false,
 	"MAXHEALTH" = false,
-	"CRITS" = true
+	"CRITS" = false
 }
 
 # stuff for fading screens
@@ -74,9 +74,17 @@ func player_healed_for(heal: int) -> void:
 	emit_signal("update_player_health", PlayerHealth, PlayerMaxHealth, PlayerRestorationPotions)
 
 func player_take_damage(damage: int) -> void:
+	if InvincibleTurns > 0:
+		InvincibleTurns -= 1
+		GameManager.give_player_notification("You negated %d damage! You have %d more turns with invincibility!" % [damage, InvincibleTurns])
+		return
 	if damage >= PlayerMaxHealth * 0.5:
-		AudioManager.play_sfx("res://assets/sfx/FAHHHHHHH.mp3")
+		AudioManager.play_sfx("res://assets/sfx/FAHHHHHHH.mp3", -10)
+	else:
+		print("play this sound")
+		AudioManager.play_sfx("res://assets/sfx/player_hurt_sfx - Celestial SFX.mp3", -10)
 	PlayerHealth -= damage
+	GameManager.give_player_notification("You took %d damage!" % damage)
 	emit_signal("update_player_health", PlayerHealth, PlayerMaxHealth, PlayerRestorationPotions)
 
 func give_player_notification(text: String) -> void:

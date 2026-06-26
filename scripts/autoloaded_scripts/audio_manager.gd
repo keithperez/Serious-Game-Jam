@@ -24,8 +24,9 @@ func _on_stream_finished(stream: AudioStreamPlayer) -> void:
 	available.append(stream)
 	
 
-func play_sfx(path: String) -> void:
-	queue.append(path)
+func play_sfx(path: String, change_decibels: int = 0) -> void:
+	var data: Array = [path, change_decibels]
+	queue.append(data)
 
 func play_music(path: String, change_decibels: int) -> void:
 	music.bus = "Music"
@@ -35,7 +36,8 @@ func play_music(path: String, change_decibels: int) -> void:
 
 func _process(_delta: float) -> void:
 	if not queue.is_empty() and not available.is_empty():
-		var sound: String = queue.pop_front()
-		available[0].stream = load(sound)
+		var sound: Array = queue.pop_front()
+		available[0].stream = load(sound[0])
+		available[0].volume_db = sound[1]
 		available[0].play()
 		available.pop_front()
