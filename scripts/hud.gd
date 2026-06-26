@@ -9,6 +9,7 @@ extends Control
 @onready var health_bar_text: Label = $BarContainer/HealthContainer/PanelContainer/Label
 @onready var notifcation: Label = $Notification
 @onready var notificationTimer: Timer = $Notification/NotificationTimer
+@onready var upgradesList: RichTextLabel = $UpgradesAnalyzer
 
 signal upgrade_selected(index: int)
 
@@ -16,6 +17,9 @@ func _ready() -> void:
 	GameManager.connect("update_player_health", _update_player_health)
 	GameManager.connect("notify_player", _showcase_notification_text)
 
+func update_upgrades_information() -> void:
+	upgradesList.visible = true
+	upgradesList.text = GameManager.make_list_of_upgrades()
 
 func _update_player_health(PlayerHealth: int, PlayerMaxHealth: int, FlasksRemaining: int) -> void:
 	health_bar.max_value = PlayerMaxHealth

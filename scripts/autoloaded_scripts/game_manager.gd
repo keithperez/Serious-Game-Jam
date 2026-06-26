@@ -90,3 +90,32 @@ func player_take_damage(damage: int) -> void:
 func give_player_notification(text: String) -> void:
 	emit_signal("notify_player", text)
 	
+func make_list_of_upgrades() -> String:
+	var text: String = "Upgrades:\n"
+	text += "\n"
+	text += "Boss Upgrades:\n"
+	for key in boss_upgrade_dictionary:
+		if boss_upgrade_dictionary[key]:
+			text += key + ": Acquired\n"
+	text += "\n"
+	text += "Attack Wheel Upgrades:\n"
+	if AttackTwiceLegendary: text += "Attack twice per attack spin.\n"
+	for upgrade in PlayerAttackAdditiveUpgrades:
+		text += upgrade.description + "\n"
+	for upgrade in PlayerAttackMultiplicativeUpgrades:
+		text += upgrade.description + "\n"
+	text += "\n"
+	text += "Special Wheel Upgrades:\n"
+	if MaxHealthOverhealLegendary: text += "Lower HP gives More Special Damage.\n"
+	for upgrade in PlayerSpecialAdditiveUpgrades:
+		text += upgrade.description + "\n"
+	for upgrade in PlayerSpecialMultiplicativeUpgrades:
+		text += upgrade.description + "\n"
+	text += "\n"
+	text += "Heal Wheel Upgrades:\n"
+	if MaxHealthOverhealLegendary: text += "Heals past max health, make that the max health.\n"
+	for upgrade in PlayerHealAdditiveUpgrades:
+		text += upgrade.description + "\n"
+	for upgrade in PlayerHealMultiplicativeUpgrades:
+		text += upgrade.description + "\n"
+	return text

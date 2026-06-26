@@ -13,6 +13,12 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qmd"]
 bg_color = Color(1, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_047uy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dk8gf"]
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
 [node name="HUD" type="Control" unique_id=141736504]
 layout_mode = 3
 anchors_preset = 15
@@ -109,6 +115,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="UpgradeDisplayer1" type="Button" parent="UpgradeOverlay/UpgradeButtonContainer" unique_id=1767232290]
+self_modulate = Color(0.011764706, 0.011764706, 0.011764706, 1)
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 script = ExtResource("6_047uy")
@@ -120,6 +127,7 @@ offset_top = 8.0
 offset_right = 137.0
 offset_bottom = 31.0
 text = "Attacking Wheel"
+label_settings = SubResource("LabelSettings_047uy")
 horizontal_alignment = 1
 
 [node name="WhatRarity" type="Label" parent="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer1" unique_id=1830952748]
@@ -138,11 +146,13 @@ offset_top = 74.0
 offset_right = 142.0
 offset_bottom = 194.0
 mouse_filter = 2
-text = "Attacking wheel rolls all increase damage by +1"
+bbcode_enabled = true
+text = "Attacking wheel rolls all increase "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UpgradeDisplayer2" type="Button" parent="UpgradeOverlay/UpgradeButtonContainer" unique_id=728585291]
+self_modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 script = ExtResource("6_047uy")
@@ -172,11 +182,13 @@ offset_top = 74.0
 offset_right = 142.0
 offset_bottom = 194.0
 mouse_filter = 2
+bbcode_enabled = true
 text = "Attacking wheel rolls all increase damage by +1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UpgradeDisplayer3" type="Button" parent="UpgradeOverlay/UpgradeButtonContainer" unique_id=66090073]
+self_modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 script = ExtResource("6_047uy")
@@ -206,12 +218,14 @@ offset_top = 74.0
 offset_right = 142.0
 offset_bottom = 194.0
 mouse_filter = 2
+bbcode_enabled = true
 text = "Attacking wheel rolls all increase damage by +1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UpgradeDisplayer4" type="Button" parent="UpgradeOverlay/UpgradeButtonContainer" unique_id=1105569244]
 visible = false
+self_modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 script = ExtResource("6_047uy")
@@ -239,6 +253,7 @@ offset_top = 74.0
 offset_right = 142.0
 offset_bottom = 194.0
 mouse_filter = 2
+bbcode_enabled = true
 text = "Attacking wheel rolls all increase damage by +1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -250,9 +265,19 @@ offset_left = 9.0
 offset_right = 1122.0
 offset_bottom = 31.0
 text = "placeholder: notification system goes here!"
+label_settings = SubResource("LabelSettings_dk8gf")
 
 [node name="NotificationTimer" type="Timer" parent="Notification" unique_id=1872342835]
 one_shot = true
+
+[node name="UpgradesAnalyzer" type="RichTextLabel" parent="." unique_id=1907252715]
+visible = false
+layout_mode = 0
+offset_left = 734.0
+offset_top = 476.0
+offset_right = 1138.0
+offset_bottom = 636.0
+text = "placeholder:"
 
 [connection signal="pressed" from="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer1" to="." method="_on_upgrade_displayer_1_pressed"]
 [connection signal="pressed" from="UpgradeOverlay/UpgradeButtonContainer/UpgradeDisplayer2" to="." method="_on_upgrade_displayer_2_pressed"]

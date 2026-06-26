@@ -28,14 +28,14 @@ var boss_index: int = 0
 
 var shown_upgrades: Array[BaseUpgrade] = []
 
-var common_attacking_pool: Array = [AttackAllAddition, AttackEvenOddAddition, AttackRangeAddition, AttackOneNumberAdditive, AttackAllMultiplication]
-var rare_attacking_pool: Array = []
+var common_attacking_pool: Array = [AttackAllAddition, AttackEvenOddAddition, AttackRangeAddition, AttackOneNumberAdditive]
+var rare_attacking_pool: Array = [AttackAllMultiplication, AttackEvenOddMultiplication, AttackRangeMultiplication, AttackOneNumberMultiplication]
 
-var common_special_pool: Array = []
-var rare_special_pool: Array = []
+var common_special_pool: Array = [SpecialAllAddition, SpecialEvenOddAddition, SpecialOneNumberAdditive, SpecialRangeAddition]
+var rare_special_pool: Array = [SpecialAllMultiplication, SpecialEvenOddMultiplication, SpecialOneNumberMultiplication, SpecialRangeMultiplication]
 
-var common_healing_pool: Array = []
-var rare_healing_pool: Array = []
+var common_healing_pool: Array = [HealingAllNumbers, HealingEvenOddAddition, HealingRangeAddition, HealingOneNumberAdditive]
+var rare_healing_pool: Array = [HealingAllMultiplication, HealingEvenOddMultiplication, HealingRangeMultiplication, HealingOneNumberMultiplication]
 
 func _ready() -> void:
 	AudioManager.play_music("res://assets/music/Whims of Fate - Persona 5.mp3.mp3", -20)
@@ -171,6 +171,8 @@ func calculate_attack_damage(rolled_number: int) -> int:
 
 func calculate_special_damage(rolled_number: int) -> int:
 	var damage: int = rolled_number + 10
+	if GameManager.UnderMaxHealthLegendary:
+		damage += (GameManager.PlayerMaxHealth - GameManager.PlayerHealth)
 	if GameManager.boss_upgrade_dictionary["CRITS"] and randf() <= 0.1: 
 		damage *= 3
 		AudioManager.play_sfx("res://assets/sfx/crit_sfx.mp3")
@@ -226,11 +228,29 @@ func _action_pressed_by_player(action) -> void:
 func _upgrade_selected(index: int) -> void:
 	match shown_upgrades[index].wheel_type:
 		UpgradeDisplayer.wheel_type.ATTACK: # for attacks
+			if shown_upgrades[index].rarity == UpgradeDisplayer.rarity_types.LEGENDARY:
+				GameManager.AttackTwiceLegendary = true
 			match shown_upgrades[index].upgrade_type:
 				"additive":
 					GameManager.PlayerAttackAdditiveUpgrades.append(shown_upgrades[index])
 				"multiplicative":
 					GameManager.PlayerAttackMultiplicativeUpgrades.append(shown_upgrades[index])
+		UpgradeDisplayer.wheel_type.SPECIAL:
+			if shown_upgrades[index].rarity == UpgradeDisplayer.rarity_types.LEGENDARY:
+				GameManager.UnderMaxHealthLegendary = true
+			match shown_upgrades[index].upgrade_type:
+				"additive":
+					GameManager.PlayerSpecialAdditiveUpgrades.append(shown_upgrades[index])
+				"multiplicative":
+					GameManager.PlayerSpecialMultiplicativeUpgrades.append(shown_upgrades[index])
+		UpgradeDisplayer.wheel_type.HEAL:
+			if shown_upgrades[index].rarity == UpgradeDisplayer.rarity_types.LEGENDARY:
+				GameManager.MaxHealthOverhealLegendary = true
+			match shown_upgrades[index].upgrade_type:
+				"additive":
+					GameManager.PlayerHealAdditiveUpgrades.append(shown_upgrades[index])
+				"multiplicative":
+					GameManager.PlayerHealMultiplicativeUpgrades.append(shown_upgrades[index])
 		UpgradeDisplayer.wheel_type.BOSS:
 			GameManager.boss_upgrade_dictionary[shown_upgrades[index].boss_type_upgrade] = true
 			if shown_upgrades[index].boss_type_upgrade == "MAXHEALTH":
@@ -241,7 +261,7 @@ func _upgrade_selected(index: int) -> void:
 	shown_upgrades = [] #empty the upgrades
 	what_is_going_on = gamestate.INBETWEEN
 	run_game_logic()
-	pass
+	hud.update_upgrades_information()
 
 func reset_upgrades_visibility() -> void:
 	for i in hud.upgrade_buttons.get_children():
@@ -294,16 +314,43 @@ func check_shown_upgrades_for_the_same_boss_type_upgrade(upgrade_type: String) -
 	return true
 
 func generate_random_upgrade() -> void:
-	var wheel_index: int = rng.randi_range(0, 0) # attack, special, healing
+	var wheel_index: int = rng.randi_range(0, 2) # attack, special, healing
 	var number_roll: float = rng.randf() # 0.85 < common
+	var upgrade: BaseUpgrade
 	match wheel_index: 
 		0: # attacking wheel
-			var upgrade: BaseUpgrade = common_attacking_pool.pick_random().new()
+			if number_roll >= 0.99 and !GameManager.AttackTwiceLegendary:
+				upgrade = BaseUpgrade.new()
+				upgrade.wheel_type = UpgradeDisplayer.wheel_type.ATTACK
+				upgrade.rarity = UpgradeDisplayer.rarity_types.LEGENDARY
+				upgrade.description = "Attacking wheel spins twice per turn."
+			elif number_roll >= 0.84:
+				upgrade = rare_attacking_pool.pick_random().new()
+			else:
+				upgrade = common_attacking_pool.pick_random().new()
 			shown_upgrades.append(upgrade)
 		1: # special wheel
-			pass
+			if number_roll >= 0.99 and !GameManager.UnderMaxHealthLegendary:
+				upgrade = BaseUpgrade.new()
+				upgrade.wheel_type = UpgradeDisplayer.wheel_type.SPECIAL
+				upgrade.rarity = UpgradeDisplayer.rarity_types.LEGENDARY
+				upgrade.description = "Every point of health under your max, gives +1 damage to special wheel."
+			elif number_roll >= 0.84:
+				upgrade = rare_special_pool.pick_random().new()
+			else:
+				upgrade = common_special_pool.pick_random().new()
+			shown_upgrades.append(upgrade)
 		2: # healing wheel
-			pass
+			if number_roll >= 0.99 and !GameManager.MaxHealthOverhealLegendary:
+				upgrade = BaseUpgrade.new()
+				upgrade.wheel_type = UpgradeDisplayer.wheel_type.HEAL
+				upgrade.rarity = UpgradeDisplayer.rarity_types.LEGENDARY
+				upgrade.description = "Any amount of healing past your maximum health, make that the new max."
+			elif number_roll >= 0.84:
+				upgrade = rare_healing_pool.pick_random().new()
+			else:
+				upgrade = common_healing_pool.pick_random().new()
+			shown_upgrades.append(upgrade)
 
 
 func _on_close_tutorial_button_pressed() -> void:
