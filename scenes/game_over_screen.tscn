@@ -1,24 +1,33 @@
 [gd_scene format=3 uid="uid://cnotc4ojelv0u"]
 
 [ext_resource type="Script" uid="uid://cckkk4yjw35hh" path="res://scenes/game_over_screen.gd" id="1_iwahs"]
+[ext_resource type="Texture2D" uid="uid://cpojxqria4oca" path="res://assets/Sprites/SadEnd.png" id="2_61w2s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
-font_size = 100
+font_size = 82
 
 [node name="GameOverScreen" type="Node2D" unique_id=922021960]
 script = ExtResource("1_iwahs")
 
+[node name="SadEnd" type="Sprite2D" parent="." unique_id=1448020809]
+position = Vector2(578, 325)
+scale = Vector2(2.3565574, 1.8111111)
+texture = ExtResource("2_61w2s")
+
 [node name="Label" type="Label" parent="." unique_id=1735031919]
 offset_right = 1038.0
 offset_bottom = 399.0
-text = "YOU SUCK!!!!!!!"
+theme_override_font_sizes/font_size = 15
+text = "YOU 
+SUCK
+!!!!!!!"
 label_settings = SubResource("LabelSettings_g4v7s")
 
 [node name="BackToMainMenu" type="Button" parent="." unique_id=1680748254]
-offset_left = 376.0
-offset_top = 309.0
-offset_right = 724.0
-offset_bottom = 472.0
+offset_left = 866.0
+offset_top = 252.0
+offset_right = 1128.0
+offset_bottom = 354.0
 text = "Back to Main Menu"
 
 [connection signal="pressed" from="BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]

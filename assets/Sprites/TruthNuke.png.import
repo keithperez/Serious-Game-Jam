@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqxhbnny527pm"
-path="res://.godot/imported/magic_icon_old.png-4eccabd3896b5b613b24e4f91b24fb99.ctex"
+uid="uid://d2afbwm3nyjth"
+path="res://.godot/imported/TruthNuke.png-e1941d1c81c24a989850daadedbc7288.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/magic_icon_old.png"
-dest_files=["res://.godot/imported/magic_icon_old.png-4eccabd3896b5b613b24e4f91b24fb99.ctex"]
+source_file="res://assets/Sprites/TruthNuke.png"
+dest_files=["res://.godot/imported/TruthNuke.png-e1941d1c81c24a989850daadedbc7288.ctex"]
 
 [params]
 

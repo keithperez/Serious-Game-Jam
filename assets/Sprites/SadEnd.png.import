@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqxhbnny527pm"
-path="res://.godot/imported/magic_icon_old.png-4eccabd3896b5b613b24e4f91b24fb99.ctex"
+uid="uid://cpojxqria4oca"
+path="res://.godot/imported/SadEnd.png-06f15afcadba580329a2c809187deaa6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/magic_icon_old.png"
-dest_files=["res://.godot/imported/magic_icon_old.png-4eccabd3896b5b613b24e4f91b24fb99.ctex"]
+source_file="res://assets/Sprites/SadEnd.png"
+dest_files=["res://.godot/imported/SadEnd.png-06f15afcadba580329a2c809187deaa6.ctex"]
 
 [params]
 

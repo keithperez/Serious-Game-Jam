@@ -1,24 +1,33 @@
 [gd_scene format=3 uid="uid://c8yljufogq1mr"]
 
 [ext_resource type="Script" uid="uid://eeo4vb8wfkqm" path="res://scenes/you_win_screen.gd" id="1_rti8p"]
+[ext_resource type="Texture2D" uid="uid://d2afbwm3nyjth" path="res://assets/Sprites/TruthNuke.png" id="2_otaq1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
-font_size = 100
+font_size = 67
+font_color = Color(0.9232986, 0.70050555, 0.3282747, 1)
 
 [node name="you_win_screen" type="Node2D" unique_id=73831731]
 script = ExtResource("1_rti8p")
 
+[node name="TruthNuke" type="Sprite2D" parent="." unique_id=673225584]
+position = Vector2(582, 326)
+scale = Vector2(2.377049, 1.85)
+texture = ExtResource("2_otaq1")
+
 [node name="Label" type="Label" parent="." unique_id=1096925787]
 offset_right = 946.0
 offset_bottom = 412.0
-text = "youre goated!!!!!!!!!!!!!!!!!!!!!"
+text = "You're a
+winner
+!!!!!!!!!"
 label_settings = SubResource("LabelSettings_g4v7s")
 
 [node name="BackToMainMenu" type="Button" parent="." unique_id=1870817874]
-offset_left = 503.0
-offset_top = 330.0
-offset_right = 667.0
-offset_bottom = 448.0
+offset_left = 881.0
+offset_top = 168.0
+offset_right = 1045.0
+offset_bottom = 286.0
 text = "Back to Main Menu"
 
 [connection signal="pressed" from="BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
