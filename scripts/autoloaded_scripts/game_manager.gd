@@ -143,7 +143,7 @@ func make_list_of_upgrades() -> String:
 		text += upgrade.description + "\n"
 	text += "\n"
 	text += "Special Wheel Upgrades:\n"
-	if MaxHealthOverhealLegendary: text += "Lower HP gives More Special Damage.\n"
+	if UnderMaxHealthLegendary: text += "Lower HP gives More Special Damage.\n"
 	for upgrade in PlayerSpecialAdditiveUpgrades:
 		text += upgrade.description + "\n"
 	for upgrade in PlayerSpecialMultiplicativeUpgrades:

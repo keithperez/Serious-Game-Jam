@@ -29,6 +29,8 @@ func play_sfx(path: String, change_decibels: int = 0) -> void:
 	queue.append(data)
 
 func play_music(path: String, change_decibels: int) -> void:
+	if music.playing:
+		music.stop()
 	music.bus = "Music"
 	music.stream = load(path)
 	music.volume_db = change_decibels

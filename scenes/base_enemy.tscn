@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bjraiaq85lhnt" path="res://scripts/base_enemy.gd" id="1_sw3va"]
 [ext_resource type="Texture2D" uid="uid://ei62wgkp4me5" path="res://assets/placeholder/enemy_placeholder_art.png" id="2_2kb2m"]
+[ext_resource type="Texture2D" uid="uid://de5nnpfayr2lp" path="res://assets/Sprites/Jimbo.png.png" id="3_kegi0"]
+[ext_resource type="Texture2D" uid="uid://ev1gsob3oal6" path="res://assets/Sprites/snakeEyes.png.png" id="4_64ljx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kb2m"]
 bg_color = Color(1, 0, 0, 1)
@@ -9,6 +11,75 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tonni"]
+atlas = ExtResource("3_kegi0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4o54"]
+atlas = ExtResource("3_kegi0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gk8p"]
+atlas = ExtResource("3_kegi0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rffmh"]
+atlas = ExtResource("3_kegi0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf87f"]
+atlas = ExtResource("4_64ljx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfapk"]
+atlas = ExtResource("4_64ljx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rhgx"]
+atlas = ExtResource("4_64ljx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnr33"]
+atlas = ExtResource("4_64ljx")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tonni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4o54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gk8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rffmh")
+}],
+"loop": 1,
+"name": &"boss_balatro",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf87f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfapk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rhgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnr33")
+}],
+"loop": 1,
+"name": &"enemy_snake_eyes",
+"speed": 9.0
+}]
 
 [node name="BaseEnemy" type="Node2D" unique_id=1606080847]
 visible = false
@@ -38,5 +109,12 @@ text = "100 / 100"
 
 [node name="GeneralTimer" type="Timer" parent="." unique_id=1820843704]
 one_shot = true
+
+[node name="AnimatedSpriteHandler" type="AnimatedSprite2D" parent="." unique_id=1935352545]
+visible = false
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"enemy_snake_eyes"
+frame_progress = 0.6804569
 
 [connection signal="timeout" from="GeneralTimer" to="." method="_on_general_timer_timeout"]

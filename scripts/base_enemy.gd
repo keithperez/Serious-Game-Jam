@@ -10,6 +10,7 @@ var boss_num: int
 
 @onready var texture: Sprite2D = $Sprite2D
 @onready var modulating_texture: Sprite2D = $ModulatingSprite
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSpriteHandler
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var health_bar_numbers: Label = $Numbers
 @onready var general_timer: Timer = $GeneralTimer
@@ -28,6 +29,15 @@ func load_enemy(texture_path: String, inital_hp: int, initial_atk_damage: int, t
 	is_boss = false
 
 func load_enemy_from_data(index: int) -> void:
+	if index == 10:
+		animated_sprite.play("enemy_snake_eyes")
+		animated_sprite.visible = true
+		texture.visible = false
+		modulating_texture.visible = false
+	else:
+		animated_sprite.visible = false
+		texture.visible = true
+		modulating_texture.visible = true
 	texture.texture = load(EnemyData.get_texture_path_from_index(index))
 	modulating_texture.texture = load(EnemyData.get_modulating_texture_path_from_index(index))
 	var intial_hp: int = EnemyData.get_inital_HP_from_index(index)
@@ -42,6 +52,15 @@ func load_enemy_from_data(index: int) -> void:
 	is_boss = false
 
 func load_boss_from_data(index: int) -> void:
+	if index == 2:
+		animated_sprite.play("boss_balatro")
+		animated_sprite.visible = true
+		texture.visible = false
+		modulating_texture.visible = false
+	else:
+		animated_sprite.visible = false
+		texture.visible = true
+		modulating_texture.visible = true
 	texture.texture = load(BossData.get_texture_path_from_index(index))
 	modulating_texture.texture = load(BossData.get_modulating_texture_path_from_index(index))
 	var intial_hp: int = BossData.get_inital_HP_from_index(index)

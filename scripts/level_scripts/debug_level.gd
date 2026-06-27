@@ -38,6 +38,7 @@ var common_healing_pool: Array = [HealingAllNumbers, HealingEvenOddAddition, Hea
 var rare_healing_pool: Array = [HealingAllMultiplication, HealingEvenOddMultiplication, HealingRangeMultiplication, HealingOneNumberMultiplication]
 
 func _ready() -> void:
+	await get_tree().create_timer(0.1).timeout
 	AudioManager.play_music("res://assets/music/Whims of Fate - Persona 5.mp3.mp3", -20)
 	reset_upgrades_visibility()
 	player.connect("action_emitter", _action_pressed_by_player)
@@ -88,7 +89,7 @@ func run_game_logic() -> void:
 					0:
 						AudioManager.play_music("res://assets/music/Blooming Villian - Persona 5.mp3", -20)
 					1:
-						AudioManager.play_music("res://assets/music/Goat_sim_song.mp3", -10)
+						AudioManager.play_music("res://assets/music/Libra - Nightreign OST.mp3", -20)
 					2:
 						AudioManager.play_music("res://assets/music/Mario and Luigi Bowsers Inside Story Music.mp3", -20)
 			else:
@@ -124,6 +125,7 @@ func _recieve_wheel_landed_on(rolled_number: int) -> void:
 				AudioManager.play_sfx("res://assets/sfx/peggle_free_ball_sfx.mp3", -10)
 			var damage_done = calculate_attack_damage(rolled_number)
 			enemy.take_damage(damage_done)
+			player.play_animation()
 			AudioManager.play_sfx("res://assets/sfx/Player_Attack_Sfx - Barogs Gaming.mp3", -20)
 			GameManager.give_player_notification("You dealt %d damage to the enemy!" % damage_done)
 		actions.SPECIAL:
@@ -132,6 +134,7 @@ func _recieve_wheel_landed_on(rolled_number: int) -> void:
 				AudioManager.play_sfx("res://assets/sfx/peggle_free_ball_sfx.mp3", -10)
 			var damage_done = calculate_special_damage(rolled_number)
 			enemy.take_damage(damage_done)
+			player.play_animation()
 			AudioManager.play_sfx("res://assets/sfx/Player_Special_sfx.mp3", -10)
 			GameManager.give_player_notification("You dealt %d damage to the enemy!" % damage_done)
 		actions.HEALING:

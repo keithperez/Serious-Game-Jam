@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxnalvgjrari8"
+path="res://.godot/imported/Libra - Nightreign OST.mp3-454690c0d18c1efbd27ffcecc639e1fd.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Libra - Nightreign OST.mp3"
+dest_files=["res://.godot/imported/Libra - Nightreign OST.mp3-454690c0d18c1efbd27ffcecc639e1fd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

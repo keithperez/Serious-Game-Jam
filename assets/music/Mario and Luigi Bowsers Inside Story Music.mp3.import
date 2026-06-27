@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Mario and Luigi Bowsers Inside Story Music.mp
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0.0
 bpm=0.0
 beat_count=0

@@ -50,7 +50,7 @@ func load_roulette_wheel(starting_friction: float) -> void:
 	wheel_starting_friction = starting_friction
 	spacing = 2 * PI / 20
 	var sprite: Sprite2D = Sprite2D.new()
-	sprite.texture = load("res://assets/placeholder/wheel_not_final_with_numbers.png")
+	sprite.texture = load("res://assets/Sprites/wheel_finish-1.png.png")
 	wheelspinnerthing.add_child(sprite)
 
 func _ready() -> void:
@@ -59,10 +59,11 @@ func _ready() -> void:
 func spin_wheel() -> void:
 	# make sure to add the wheel_rotation resetter here we really don't want a big ass number here
 	idling = false
-	wheelspinnerthing.rotation = randf_range(0.0, 2*PI)
+	randomize()
+	wheelspinnerthing.rotation = rng.randf_range(0.0, 2*PI)
 	change_in_rotation = fmod(wheelspinnerthing.rotation, spacing)
 	wheel_velocity = wheel_starting_speed
-	wheel_friction = wheel_starting_friction
+	wheel_friction = wheel_starting_friction + rng.randf_range(0, 0.02)
 
 func _physics_process(delta: float) -> void:
 	if idling:

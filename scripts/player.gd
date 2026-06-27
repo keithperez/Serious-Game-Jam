@@ -10,7 +10,7 @@ signal action_emitter(action: actionSelected)
 @onready var mgk_button: Button = $Buttons/MagicButton
 @onready var heal_button: Button = $Buttons/HealButton
 @onready var describe: RichTextLabel = $Buttons/DescribingOptions
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animatedSprite: AnimatedSprite2D = $PlayerSprite
 
 func _physics_process(_delta: float) -> void:
 	if atk_button.is_hovered():
@@ -23,19 +23,26 @@ func _physics_process(_delta: float) -> void:
 		describe.text = "Pick an action!"
 	pass
 
+func play_animation() -> void:
+	animatedSprite.play()
+	pass
+
 func _on_attack_button_pressed() -> void:
 	emit_signal("action_emitter", actionSelected.ATTACK)
 	AudioManager.play_sfx("res://assets/sfx/Spinning_Tick_victorabdo_cropped.mp3")
-	animated_sprite.play("attack")
 	pass # Replace with function body.
 
 func _on_magic_button_pressed() -> void:
 	emit_signal("action_emitter", actionSelected.SPECIAL)
 	AudioManager.play_sfx("res://assets/sfx/Spinning_Tick_victorabdo_cropped.mp3")
-	animated_sprite.play("attack")
 	pass # Replace with function body.
 
 func _on_heal_button_pressed() -> void:
 	emit_signal("action_emitter", actionSelected.HEAL)
 	AudioManager.play_sfx("res://assets/sfx/Spinning_Tick_victorabdo_cropped.mp3")
+	pass # Replace with function body.
+
+
+func _on_player_sprite_animation_finished() -> void:
+	animatedSprite.stop()
 	pass # Replace with function body.
