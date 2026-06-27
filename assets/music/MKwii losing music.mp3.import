@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/MKwii losing music.mp3-4a4728a2f4c9e9d3dadb83
 
 [params]
 
-loop=false
+loop=true
 loop_offset=10.2
 bpm=0.0
 beat_count=0

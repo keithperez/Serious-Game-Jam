@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Libra - Nightreign OST.mp3-454690c0d18c1efbd2
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0.0
 bpm=0.0
 beat_count=0

@@ -22,6 +22,10 @@ GameManager="*uid://cgvdau78mehsr"
 EnemyData="*uid://dvyxwp4ayputf"
 BossData="*uid://csbjrpapnc8ep"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [file_customization]
 
 folder_colors={
